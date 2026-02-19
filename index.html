@@ -5,36 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EnvisionPC Games</title>
 
-  <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-  <h1>EnvisionPC</h1>
+  <h1>Totally not Arlen's website...</h1>
   <p>Play free browser games</p>
+
+  <!-- Search -->
+  <input
+    type="text"
+    id="search"
+    placeholder="Search games..."
+    onkeyup="searchGames()"
+  >
 </header>
+
+<!-- Categories -->
+<nav class="categories">
+  <button onclick="filterGames('all')">All</button>
+  <button onclick="filterGames('action')">Action</button>
+  <button onclick="filterGames('arcade')">Arcade</button>
+  <button onclick="filterGames('puzzle')">Puzzle</button>
+</nav>
 
 <main>
 
-  <div class="game-grid">
+  <div class="game-grid" id="gameGrid">
 
-    <a class="game-card" href="games/game1/">
-      <div class="thumb"></div>
-      <span>Game 1</span>
+    <!-- Game -->
+    <a class="game-card action" href="games/game1/">
+      <img src="https://picsum.photos/300/200?1">
+      <span>Space Battle</span>
     </a>
 
-    <a class="game-card" href="games/game2/">
-      <div class="thumb"></div>
-      <span>Game 2</span>
+    <a class="game-card arcade" href="games/game2/">
+      <img src="https://picsum.photos/300/200?2">
+      <span>Jump Dash</span>
     </a>
 
-    <a class="game-card" href="games/game3/">
-      <div class="thumb"></div>
-      <span>Game 3</span>
+    <a class="game-card puzzle" href="games/game3/">
+      <img src="https://picsum.photos/300/200?3">
+      <span>Block Brain</span>
     </a>
 
   </div>
@@ -42,8 +57,32 @@
 </main>
 
 <footer>
-  <p>© 2026 EnvisionPC</p>
+  <p>© 2026 Arlen</p>
 </footer>
+
+<script>
+function searchGames() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let games = document.querySelectorAll(".game-card");
+
+  games.forEach(game => {
+    let title = game.innerText.toLowerCase();
+    game.style.display = title.includes(input) ? "block" : "none";
+  });
+}
+
+function filterGames(category) {
+  let games = document.querySelectorAll(".game-card");
+
+  games.forEach(game => {
+    if (category === "all" || game.classList.contains(category)) {
+      game.style.display = "block";
+    } else {
+      game.style.display = "none";
+    }
+  });
+}
+</script>
 
 </body>
 </html>
