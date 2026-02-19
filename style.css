@@ -1,94 +1,73 @@
-/* General page styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
-   font-family: Arial, sans-serif;
-   background-color: #121212;
-   color: white;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   min-height: 100vh;
-   text-align: center;
+  background: #0f172a;
+  color: white;
+  text-align: center;
 }
 
-/* Site name centered at the top */
-.site-header {
-   text-align: center;
-   width: 100%;
-   margin-top: 20px;
-   font-size: 2em;
-   font-weight: bold;
+header {
+  padding: 40px 20px;
+  background: #020617;
+  box-shadow: 0 0 20px #000;
 }
 
-/* Navigation bar aligned to the left */
-nav {
-   width: 100%;
-   background-color: #333;
-   padding: 10px;
-   display: flex;
-   justify-content: flex-start; /* Moves menu to the left */
-   border-radius: 8px;
+header h1 {
+  font-size: 3rem;
 }
 
-nav ul {
-   list-style: none;
-   display: flex;
-   padding: 0;
+header p {
+  opacity: 0.7;
 }
 
-nav ul li {
-   margin: 0 15px;
+main {
+  padding: 40px 20px;
 }
 
-nav ul li a {
-   color: white;
-   text-decoration: none;
-   font-weight: bold;
+h2 {
+  margin-bottom: 20px;
 }
 
-/* Grid layout for games */
 .game-grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-   gap: 20px;
-   width: 80%;
-   margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
 }
 
-/* Styling for individual game cards */
 .game-card {
-   text-align: center;
-   background-color: #222;
-   padding: 15px;
-   border-radius: 8px;
+  background: #020617;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Footer styling */
+.game-card img {
+  width: 100%;
+  display: block;
+}
+
+.game-card span {
+  display: block;
+  padding: 12px;
+  font-weight: bold;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #38bdf8;
+}
+
 footer {
-   text-align: center;
-   padding: 15px;
-   background-color: #333;
-   color: white;
-   width: 100%;
-   position: relative;
-   bottom: 0;
-   .play-button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  padding: 20px;
+  opacity: 0.6;
 }
 
-.play-button {
-    background-color: #ff6600;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.play-button:hover {
-    background-color: #ff4500;
-}
